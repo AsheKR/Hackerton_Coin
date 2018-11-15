@@ -8,9 +8,13 @@ requests = "*"
 "beautifulsoup4" = "*"
 django = "*"
 django-crontab = "*"
+djangorestframework = "*"
+selenium = "*"
+lxml = "*"
 
 [dev-packages]
 ipython = "*"
+django-extensions = "*"
 
 [requires]
 python_version = "3.6"

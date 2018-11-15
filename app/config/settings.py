@@ -32,7 +32,8 @@ SECRET_KEY = '8g58+gcah_(js_-9i=+x$@5^fx115dbl9x%@s-vzy1w!t5=@@='
 DEBUG = True
 
 CRONJOBS = [
-    ('*/1 * * * *', 'coin.cron.get_coin_info_1_minute', '>> /tmp/get_coin_job.log')
+    ('*/1 * * * *', 'coin.cron.get_coin_info_1_minute', '>> /tmp/cron.log'),
+    ('*/30 * * * *', 'river.cron.river_temper_cron', '>> /tmp/cron.log'),
 ]
 
 ALLOWED_HOSTS = [
@@ -44,6 +45,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'river',
     'coin',
     'django_crontab',
 
@@ -53,6 +55,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django_extensions',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
