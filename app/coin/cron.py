@@ -9,7 +9,7 @@ def get_coin_info_1_minute():
 
     for currency, __ in CURRENCY_PAIR:
         data = CoinMixin.coin_detail(currency)
-        coin = Coin.objects.get(name=currency)
+        coin, created = Coin.objects.get_or_create(name=currency)
         now_value = int(data.get('last'))
         coinValue = CoinValue(
             coin=coin,

@@ -8,6 +8,7 @@ class Coin(models.Model, GetTopTenCoinMixin):
     name = models.CharField(
         choices=GetTopTenCoinMixin.get_10_top_coins(),
         max_length=9,
+        unique=True,
     )
 
     def __str__(self):
