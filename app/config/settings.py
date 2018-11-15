@@ -31,6 +31,10 @@ SECRET_KEY = '8g58+gcah_(js_-9i=+x$@5^fx115dbl9x%@s-vzy1w!t5=@@='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CRONJOBS = [
+    ('*/1 * * * *', 'coin.cron.get_coin_info_1_minute', '>> /tmp/get_coin_job.log')
+]
+
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
