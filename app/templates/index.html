@@ -21,28 +21,28 @@
   <div id="select-coin-menu">
     <div class="black_out"></div>
     <div class="coin_list">
-      <div><input type="radio" name="" id=""> Coin1</div>
-      <div><input type="radio" name="" id=""> Coin2</div>
-      <div><input type="radio" name="" id=""> Coin3</div>
-      <button type="button" name="button">전송</button>
+      {% for coin in ten_coins %}
+      <div><input type="radio" name="coin" id="{{ coin.id }}" class="coin_pk_list"> <label for="{{ coin.id }}">{{ coin.get_name_display }}</label></div>
+      {% endfor %}
+      <button type="button" name="button" id="coin_select_submit">전송</button>
     </div>
   </div>
 
   <div class="coin_text">
-    <p>비트코인</p>
+    <p>{{ btc_coinValue.coin.get_name_display }}</p>
   </div>
   <div class="flex_center">
     <div class="center_coin">
       <div class="before_coin_value">
-        <p>Before BitCoin Price: 3999원</p>
+        <p>Before BitCoin Price: {{ btc_coinValue.before_value }}</p>
       </div>
       <div class="current_coin_value">
-        <p>Current BitCoin Price: 4000원</p>
+        <p>Current BitCoin Price: {{ btc_coinValue.now_value }}</p>
       </div>
     </div>
     <div class="right_coin_percent">
       <span class="arrow"><i class="fas fa-sort-down"></i></span>
-      <p class="percent">35%</p>
+      <p class="percent">{{ btc_coinValue.percent }}%</p>
     </div>
   </div>
   <div class="say_something">
@@ -55,4 +55,34 @@
     <div></div>
   </button>
 </body>
+<script>
+$(function() {
+  $('#coin_select_submit').click(function() {
+    var selectCoinId = $('.coin_pk_list:checked').attr('id')
+
+
+
+    $.ajax({
+        type: "GET",
+        url: "http://127.0.0.1:8000/apis/list/"+selectCoinId+'/',
+        success: function(data) {
+          console.log(data)
+          $target = $('#select-coin-menu')
+          $target.css('display', 'none')
+
+          $coin_text = $('.coin_text p')
+          $before_coin_value = $('.before_coin_value p')
+          $current_coin_value =$('.current_coin_value p')
+
+          $arrow_p = $('.arrow .percent')
+
+          $coin_text.text(data.coin.get_name_display)
+          $before_coin_value.text('Before BitCoin Price: ' + data.before_value)
+          $current_coin_value.text('Current BitCoin Price: ' + data.now_value)
+          $arrow_p.text(data.percent)
+        }
+    })
+  })
+})
+</script>
 </html>

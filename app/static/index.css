@@ -37,6 +37,7 @@ body {
   background-color: white;
   z-index: 501;
   padding: 50px;
+  text-align: left !important;
 }
 
 #select-coin-menu > .coin_list > div {
