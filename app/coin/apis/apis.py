@@ -40,12 +40,12 @@ class CurrentCoinValueView(APIView):
             dirname = 'up'
             if percent < 10:
                 # 10보다 낮은 것
-                folder_name = '0_10'
+                folder_name = 'p0_10'
             elif percent < 15:
                 # 15보다 낮은것
-                folder_name = '10_15'
+                folder_name = 'p10_15'
             else:
-                folder_name = '15_20'
+                folder_name = 'p15_20'
 
         dirpath = os.path.join(os.path.join(os.path.join(settings.STATIC_DIR, 'images'), dirname), folder_name)
 
@@ -54,6 +54,8 @@ class CurrentCoinValueView(APIView):
 
         img_full_path = os.path.join(dirpath, img_file)
         img_rel_path = '../' + img_full_path.split('app/')[1]
+
+        print(img_rel_path)
 
         data = serializer.data
         data['img_path'] = img_rel_path

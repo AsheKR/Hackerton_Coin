@@ -38,17 +38,22 @@
         <p>{{ btc_coinValue.coin.get_name_display }}</p>
       </div>
       <div class="before_coin_value">
-        <p>Before Price: {{ btc_coinValue.before_value|intcomma }}</p>
+        <p style="font-size:0.7em;">Before Price: {{ btc_coinValue.before_value|intcomma }}</p>
       </div>
       <div class="current_coin_value">
         <p>Current Price: {{ btc_coinValue.now_value|intcomma }}</p>
       </div>
       <div class="right_coin_percent">
-        <span class="arrow"><i class="fas fa-sort-down"></i></span>
-        <p class="percent">{{ btc_coinValue.percent }}%</p>
+        {% if btc_coinValue.percent < 0 %}
+          <span class="arrow"><i class="fas fa-sort-down" style="color: red;"></i></span>
+        {% else %}
+          <span class="arrow"><i class="fas fa-sort-up" style="color: blue;"></i></span>
+        {% endif %}
+        <p class="percent" style="color: red;">{{ btc_coinValue.percent }}%</p>
       </div>
+      <p style="font-size: 20px;">- 한강수온 -</p>
       <div class="say_something">
-        <p>{{ river_temp.temperature }} </p>
+        <p style="color: #A8C8F9;">{{ river_temp.temperature }}°</p>
       </div>
     </div>
   </div>
