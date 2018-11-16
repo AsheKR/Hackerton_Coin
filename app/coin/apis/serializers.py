@@ -29,7 +29,7 @@ class CoinValueSerializer(serializers.ModelSerializer):
     def debug_calc_percent(self, a):
         today_start_value = CoinValue.objects.filter(coin=self.cur_coin, is_day_master=True).last().now_value
         current_value = CoinValue.objects.filter(coin=self.cur_coin).last().now_value
-        percent = ((current_value - today_start_value) / 100)
+        percent = float('{0:.2f}'.format((((current_value / today_start_value) - 1) * 100)))
         return percent
 
     class Meta:

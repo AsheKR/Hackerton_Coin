@@ -13,6 +13,16 @@ body {
   margin: 0;
 }
 
+.clearfix {
+  overflow: auto;
+}
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
 #select-coin-menu {
   position: absolute;
   width: 100%;
@@ -45,7 +55,8 @@ body {
 }
 
 #select-coin-menu > .coin_list > button {
-  width: 80%;
+  width: 100%;
+  padding: 10px 0;
 }
 
 .coin_text {
