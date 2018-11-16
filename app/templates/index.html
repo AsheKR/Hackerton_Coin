@@ -23,6 +23,7 @@
   <div id="select-coin-menu">
     <div class="black_out"></div>
     <div class="coin_list">
+      <p>코인 리스트</p>
       {% for coin in ten_coins %}
       <div><input type="radio" name="coin" id="{{ coin.id }}" class="coin_pk_list"> <label for="{{ coin.id }}">{{ coin.get_name_display }}</label></div>
       {% endfor %}
@@ -30,25 +31,25 @@
     </div>
   </div>
 
-  <div class="coin_text">
-    <p>{{ btc_coinValue.coin.get_name_display }}</p>
-  </div>
-  <div class="flex_center">
-    <div class="center_coin">
+  <div class="container">
+    <div class="flex_center">
+      <div class="coin_text">
+        <p>{{ btc_coinValue.coin.get_name_display }}</p>
+      </div>
       <div class="before_coin_value">
         <p>Before Price: {{ btc_coinValue.before_value|intcomma }}</p>
       </div>
       <div class="current_coin_value">
         <p>Current Price: {{ btc_coinValue.now_value|intcomma }}</p>
       </div>
+      <div class="right_coin_percent">
+        <span class="arrow"><i class="fas fa-sort-down"></i></span>
+        <p class="percent">{{ btc_coinValue.percent }}%</p>
+      </div>
+      <div class="say_something">
+        <p>{{ river_temp.temperature }} </p>
+      </div>
     </div>
-    <div class="right_coin_percent">
-      <span class="arrow"><i class="fas fa-sort-down"></i></span>
-      <p class="percent">{{ btc_coinValue.percent }}%</p>
-    </div>
-  </div>
-  <div class="say_something">
-    <p>{{ river_temp.temperature }} 도</p>
   </div>
 
   <button id="select-coin">
@@ -62,6 +63,7 @@ $(function() {
   ChangeHtml.init()
   $('#coin_select_submit').click(function() {
     ChangeHtml.call_ajax()
+    $target.css('display', 'none')
   })
 })
 </script>

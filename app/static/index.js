@@ -45,7 +45,6 @@ var ChangeHtml = {
 
     change_html : function(data) {
     $target = $('#select-coin-menu')
-    $target.css('display', 'none')
 
     $coin_text = $('.coin_text p')
     $before_coin_value = $('.before_coin_value p')
