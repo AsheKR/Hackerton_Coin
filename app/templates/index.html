@@ -5,12 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Hangang</title>
+
+  <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/solid.css" integrity="sha384-rdyFrfAIC05c5ph7BKz3l5NG5yEottvO/DQ0dCrwD8gzeQDjYBHNr1ucUpQuljos" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/fontawesome.css" integrity="sha384-u5J7JghGz0qUrmEsWzBQkfvc8nK3fUT7DCaQzNQ+q4oEXhGSx+P2OqjWsfIRB8QT" crossorigin="anonymous">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="../static/index.css">
-  <link rel="stylesheet" href="../static/index.css">
+
+  <!-- JS -->
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+  <script src="../static/index.js"></script>
 </head>
 <body>
+  <div id="select-coin-menu">
+    <div class="black_out"></div>
+    <div class="coin_list">
+      <div><input type="radio" name="" id=""> Coin1</div>
+      <div><input type="radio" name="" id=""> Coin2</div>
+      <div><input type="radio" name="" id=""> Coin3</div>
+      <button type="button" name="button">전송</button>
+    </div>
+  </div>
+
   <div class="coin_text">
     <p>비트코인</p>
   </div>
@@ -32,7 +49,7 @@
     <p>한강물은 어떠한가</p>
   </div>
 
-  <button>
+  <button id="select-coin">
     <div></div>
     <div></div>
     <div></div>
