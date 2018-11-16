@@ -22,7 +22,7 @@ def get_coin_info_1_minute():
         today_end = datetime.combine(tomorrow, time())
 
         # 그날 만든 CoinValue 항목이 없다면 그날의 대표 값으로 지정
-        if not CoinValue.objects.filter(created_at__lte=today_end, created_at__gte=today_start):
+        if not CoinValue.objects.filter(coin=coin, created_at__lte=today_end, created_at__gte=today_start):
             coinValue.is_day_master = True
 
         coinValue.save()

@@ -1,0 +1,37 @@
+body {
+  font-family: 'Mukta Mahee', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.8em;
+  color: #6C7A89;
+  background-color: #3A539B;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+section.center_coin{
+  p {
+    padding: 0 15px;
+  }
+
+  > section.before_coin_value {
+    font-size: 0.7em;
+    position: relative;
+    max-width: 500px;
+    border-radius: 5px;
+    background-color: black;
+    z-index: -1;
+    top: 30px;
+  }
+
+  > section.current_coin_value {
+    max-width: 500px;
+    padding: 15px 0;
+    border-radius: 5px;
+    background-color: #ececec;
+  }
+}
