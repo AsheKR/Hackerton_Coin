@@ -10,6 +10,7 @@ class CoinSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'name',
+            'get_name_display'
         )
 
 
