@@ -6,10 +6,16 @@ from rest_framework.views import APIView
 
 from river.models import River
 from ..models import CoinValue, Coin
-from .serializers import CoinValueSerializer, RiverSerializer
+from .serializers import CoinValueSerializer, RiverSerializer, CoinSerializer
 
 
-class CoinDetail(APIView):
+class GetTenCoinView(APIView):
+    def get(self, request, format=None):
+        coins = Coin.objects.all()
+        serializer = CoinSerializer(coins, many=True)
+        return Response(serializer.data)
+
+class CurrentCoinValueView(APIView):
     def get(self, request, pk, format=None):
         coin = Coin.objects.get(pk=pk)
         # 현재 값 가져오기
