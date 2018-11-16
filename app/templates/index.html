@@ -1,3 +1,4 @@
+{% load static %}
 {% load humanize %}
 
 <!DOCTYPE html>
@@ -58,6 +59,14 @@
     <div></div>
   </button>
 </body>
+<style>
+  body {
+    background-image: url('{{ btc_coinValue.img_path }}');
+    background-repeat: no-repeat;
+    background-position:center center;
+    background-size: contain;
+  }
+</style>
 <script>
 $(function() {
   ChangeHtml.init()

@@ -1,6 +1,9 @@
 import json
+import os
+import random
 
 import requests
+from django.conf import settings
 from django.shortcuts import render
 from django.urls import reverse
 
@@ -13,6 +16,8 @@ def get_index(request):
     ten_coins_dict = json.loads(ten_coins.content)
     btc_coinValue_dict = json.loads(btc_coinValue.content)
     river_temp = json.loads(river_temp.content)
+
+    print(btc_coinValue_dict)
 
     context = {
         'ten_coins': ten_coins_dict,

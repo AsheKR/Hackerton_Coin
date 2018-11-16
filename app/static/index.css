@@ -65,6 +65,8 @@ body {
   display: -ms-flex;
   display: flex;
   flex-direction: row;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 30px;
 }
 
 img {

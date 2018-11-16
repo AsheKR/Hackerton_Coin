@@ -52,10 +52,14 @@ var ChangeHtml = {
 
     $percent = $('.right_coin_percent p')
 
+    $body = $('body')
+    console.log($body)
+
     $coin_text.text(data.coin.get_name_display)
     $before_coin_value.text('Before Price: ' + data.before_value.toLocaleString())
     $current_coin_value.text('Current Price: ' + data.now_value.toLocaleString())
     $percent.text(data.percent + '%')
+    $body.css('background-image', 'url("'+data.img_path+'")')
   },
 
   interval_set : function() {
