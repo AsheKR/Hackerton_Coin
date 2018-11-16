@@ -78,7 +78,7 @@ var ChangeHtml = {
   },
 
   interval_set : function() {
-      globalVar.setFiveSc(setInterval(this.call_ajax, 6000))
+      globalVar.setFiveSc(setInterval(this.call_ajax, 10000))
   },
 
   call_ajax : function() {
